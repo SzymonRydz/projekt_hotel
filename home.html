@@ -1,30 +1,33 @@
-<div class="hotel-selection">
-    <h1>Wybierz hotel do zarządzania</h1>
-    <div class="filters">
-        <input type="text" placeholder="Szukaj hotelu..." class="search-bar">
-        <select name="location" class="filter">
-            <option value="">Wszystkie lokalizacje</option>
-            <option value="warszawa">Warszawa</option>
-            <option value="krakow">Kraków</option>
-        </select>
-        <select name="category" class="filter">
-            <option value="">Wszystkie kategorie</option>
-            <option value="3stars">3 gwiazdki</option>
-            <option value="5stars">5 gwiazdek</option>
-        </select>
-    </div>
-    <div class="hotels-list">
-        <div class="hotel-card">
-            <img src="hotel1.jpg" alt="Hotel 1">
-            <h2>Hotel Warszawa</h2>
-            <p>Lokalizacja: Warszawa</p>
-            <button onclick="location.href='hotel_warszawa.html'">Zarządzaj</button>
+
+<div class="hero-section">
+    <h1>Platforma Zarządzania Hotelami</h1>
+    <p>Zarządzaj swoimi hotelami szybko i wygodnie z każdego miejsca na świecie.</p>
+    <button onclick="loadContent('hotel-list.html', '#content')">Zobacz listę hoteli</button>
+</div>
+
+<div class="features-section">
+    <h2>Co oferujemy?</h2>
+    <div class="features">
+        <div class="feature">
+            <i class="icon-rezervacje"></i>
+            <h3>Zarządzanie rezerwacjami</h3>
+            <p>Prosta i szybka obsługa rezerwacji klientów.</p>
         </div>
-        <div class="hotel-card">
-            <img src="hotel2.jpg" alt="Hotel 2">
-            <h2>Hotel Kraków</h2>
-            <p>Lokalizacja: Kraków</p>
-            <button onclick="location.href='hotel_krakow.html'">Zarządzaj</button>
+        <div class="feature">
+            <i class="icon-statystyki"></i>
+            <h3>Statystyki i raporty</h3>
+            <p>Monitoruj wyniki swoich hoteli w czasie rzeczywistym.</p>
+        </div>
+        <div class="feature">
+            <i class="icon-pracownicy"></i>
+            <h3>Harmonogramy pracowników</h3>
+            <p>Łatwo zarządzaj zespołem i czasem pracy.</p>
         </div>
     </div>
+</div>
+
+<div class="testimonials-section">
+    <h2>Opinie naszych użytkowników</h2>
+    <blockquote>„Platforma pozwoliła mi usprawnić zarządzanie moim hotelem. Gorąco polecam!” – Jan Kowalski</blockquote>
+    <blockquote>„Dzięki tej aplikacji nasz hotel oszczędza czas i pieniądze.” – Anna Nowak</blockquote>
 </div>

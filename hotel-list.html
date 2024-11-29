@@ -1,0 +1,36 @@
+<div class="hotel-list-container">
+    <h2>Lista hoteli</h2>
+
+    <!-- Wyszukiwarka i filtry -->
+    <div class="filters">
+        <input type="text" id="search-hotel" placeholder="Szukaj hotelu...">
+        <select id="location-filter">
+            <option value="">Wszystkie lokalizacje</option>
+            <option value="Warszawa">Warszawa</option>
+            <option value="Kraków">Kraków</option>
+        </select>
+        <select id="category-filter">
+            <option value="">Wszystkie kategorie</option>
+            <option value="Luxury">Luksusowe</option>
+            <option value="Economy">Ekonomiczne</option>
+        </select>
+        <button id="filter-button">Filtruj</button>
+    </div>
+
+    <!-- Lista hoteli -->
+    <div class="hotel-list">
+        <div class="hotel-card">
+            <img src="hotel1.jpg" alt="Hotel Warszawa" class="hotel-image">
+            <h3>Hotel Warszawa</h3>
+            <p>Lokalizacja: Warszawa</p>
+            <button class="manage-button">Zobacz więcej</button>
+        </div>
+        <div class="hotel-card">
+            <img src="hotel2.jpg" alt="Hotel Kraków" class="hotel-image">
+            <h3>Hotel Kraków</h3>
+            <p>Lokalizacja: Kraków</p>
+            <button class="manage-button">Zobacz więcej</button>
+        </div>
+        <!-- Dodaj więcej hoteli w podobnym formacie -->
+    </div>
+</div>

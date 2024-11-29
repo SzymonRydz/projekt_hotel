@@ -41,4 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         loadDefaultHome(); // Przywróć treść strony głównej
     });
+
+    // Obsługa kliknięcia w "Lista hoteli"
+    document.getElementById("load-hotel-list").addEventListener("click", (e) => {
+        e.preventDefault();
+        loadContent("hotel-list.html", "#content"); // Załaduj listę hoteli
+    });
 });

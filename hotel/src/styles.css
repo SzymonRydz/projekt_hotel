@@ -10,7 +10,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: #36454c;
-    padding: 10px 20px;
+    padding: 1vh 2vh;
     color: #e4e4e4;
 }
 
@@ -173,23 +173,26 @@ body {
 }
 
 /* Dodatkowe elementy */
-nav {
+.header nav {
     background-color: #36454c; /* Kolor tła nawigacji */
     color: white;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    text-decoration: none;
 }
 
-nav a {
+.header nav a {
     color: white;
     text-decoration: none;
     margin: 0 10px;
 }
 
-nav a:hover {
-    text-decoration: underline;
+.header nav a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -198,7 +201,7 @@ footer {
     background-color: #36454c;
     color: #e4e4e4;
     text-align: center;
-    padding: 10px 0;
+    padding: 1vh 0;
 }
 
 /* Formularz logowania */
@@ -226,7 +229,8 @@ footer {
 }
 
 .login-container input[type="text"],
-.login-container input[type="password"] {
+.login-container input[type="password"],
+.login-container input[type="email"] {
     width: 100%;
     padding: 8px;
     margin: 5px 0px 15px;
@@ -234,10 +238,25 @@ footer {
     border-radius: 4px;
 }
 
+p {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  p a {
+    color: #4CAF50; /* Kolor linku */
+    text-decoration: none;
+  }
+  
+  p a:hover {
+    text-decoration: underline;
+    color:#45a049;
+  }
+
 .login-container button {
     width: 100%;
     padding: 10px;
-    background-color: #516065; /* Szaro-niebieski dla przycisku */
+    background-color: #4CAF50; /* Szaro-niebieski dla przycisku */
     color: #e4e4e4; /* Jasny kremowy dla tekstu przycisku */
     border: none;
     border-radius: 4px;
@@ -246,7 +265,7 @@ footer {
 }
 
 .login-container button:hover {
-    background-color: #375a5a; /* Ciemniejszy szaro-niebieski przy hover */
+    background-color: #45a049; /* Ciemniejszy szaro-niebieski przy hover */
 }
 .logo {
     height: 50px; /* Dopasuj wysokość obrazka w pikselach */
@@ -354,10 +373,12 @@ footer {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .manage-button:hover {
     background-color: #E64A19; /* Ciemniejszy odcień pomarańczowego */
+    text-decoration: none;
 }
 
 /* Sekcja dla współpracy */
@@ -437,6 +458,11 @@ footer {
     color: #4CAF50;
     margin-bottom: 10px;
 }
+
+#reservation-list .reservation-link  {
+    font-style: italic; /* Kursywa */
+    margin: 10px 0; /* Dodanie przestrzeni nad i pod tekstem */
+  }
 
 .offer {
     background: #76929f; /* Gradientowe tło */
@@ -519,66 +545,148 @@ footer {
     gap: 10px;
 }
 
-/* Styl dla kontenera dashboardu */
-.dashboard {
+/* Styl dla kontenera dashboardu  #516065 */
+.dashboard-container {
     display: flex;
     height: 100vh; /* Pełna wysokość okna przeglądarki */
-}
-
-/* Sidebar po lewej stronie */
-.sidebar {
+    font-family: Arial, sans-serif; /* Ogólny font */
+  }
+  
+  /* Sidebar */
+  .sidebar {
     width: 250px;
     background-color: #516065;
     color: white;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar h3 {
-    text-align: center;
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.sidebar ul {
+    padding: 15px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Delikatny cień */
+  }
+  
+  .sidebar ul {
     list-style: none;
     padding: 0;
-    margin: 0;
-}
-
-.sidebar ul li {
-    margin: 10px 0;
-}
-
-.sidebar ul li a {
+  }
+  
+  .sidebar a {
     color: white;
     text-decoration: none;
-    padding: 10px 15px;
     display: block;
+    margin: 10px 0;
+    padding: 10px;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.sidebar ul li a:hover {
-    background-color: #6a7a7f;
-}
-
-#reservation-list {
-    padding-left: 20px;
-}
-
-#reservation-list li a {
-    font-size: 14px;
-    color: #cce7ff;
-    text-decoration: none;
-}
-
-#reservation-list li a:hover {
-    color: white;
+    transition: background-color 0.3s;
+  }
+  
+  .sidebar a:hover {
+    background-color: #34495e;
+  }
+  
+  /* Główna treść */
+  .main-content {
+    flex: 1; /* Główna treść zajmuje resztę miejsca */
+    background-color: #ffffff;
+    padding: 20px;
+    border-left: 1px solid #ddd; /* Linia oddzielająca sidebar */
+    overflow-y: auto;
+  }
+  
+  /* Nagłówek głównej treści */
+  .main-content h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f4f4f4;
+    padding-bottom: 5px;
+    color: #2c3e50;
+  }
+  
+  /* Opcje rozwijane */
+  .option-link {
+    display: block;
+    margin: 15px 0;
+    cursor: pointer;
+    color: #3498db;
     text-decoration: underline;
-}
+    font-weight: bold;
+  }
+  
+  .option-link:hover {
+    color: #36454c;
+  }
+  
+  /* Podmenu */
+  .submenu {
+    margin-top: 10px;
+    margin-left: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Formularz zdarzeń */
+  .submenu form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .submenu select {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .submenu button {
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .submenu button:hover {
+    background-color: #1abc9c;
+  }
+  
+  /* Pusta treść (gdy brak wybranej rezerwacji) */
+  .main-content p {
+    font-size: 18px;
+    color: #7f8c8d;
+    text-align: center;
+    margin-top: 50px;
+  }
 
-
+  .history {
+    margin-top: 15px;
+  }
+  
+  .history-item {
+    margin-bottom: 15px;
+  }
+  
+  .history-title {
+    font-weight: bold;
+    color: #3498db;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .history-title:hover {
+    color: #1abc9c;
+  }
+  
+  .history-details {
+    margin-left: 20px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  
 /* Główna treść */
 .content {
     flex: 1;
@@ -586,6 +694,214 @@ footer {
     background-color: #f5f5f5;
     overflow-y: auto;
 }
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczyste tło */
+    z-index: 1000; /* Modal wyświetlany nad resztą strony */
+  }
+
+  .add-reservation-format {
+    max-width: 600px; /* Maksymalna szerokość */
+    width: 90%; /* Wypełnia całą dostępną przestrzeń */
+    margin: 20px auto; /* Wyśrodkowanie formularza */
+    padding: 20px; /* Więcej przestrzeni wewnątrz formularza */
+    background-color: #f9f9f9; /* Delikatne tło */
+    border: 1px solid #ddd; /* Obrys */
+    border-radius: 10px; /* Zaokrąglenie */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Cień */
+  }
+  
+  .add-reservation-form {
+    max-width: 600px; /* Maksymalna szerokość */
+    width: 90%; /* Wypełnia całą dostępną przestrzeń */
+    margin: 20px auto; /* Wyśrodkowanie formularza */
+    padding: 20px; /* Więcej przestrzeni wewnątrz formularza */
+    background-color: #f9f9f9; /* Delikatne tło */
+    border: 1px solid #ddd; /* Obrys */
+    border-radius: 10px; /* Zaokrąglenie */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Cień */
+    max-height: 800px;
+    overflow-y: auto;
+  }
+  
+  .add-reservation-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Większy odstęp między polami */
+  }
+  
+  .add-reservation-form label {
+    font-size: 16px; /* Większa czcionka dla etykiet */
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .add-reservation-form input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 90%; /* Wypełnia całą szerokość */
+  }
+  
+  .add-reservation-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .add-reservation-form button:hover {
+    background-color: #45a049;
+  }
+
+  /* Szczegóły hotelu */
+.reservation-hotel-details {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    width: 87.5%;
+    margin-bottom: 20px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .reservation-hotel-details img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 20px;
+  }
+  
+  .reservation-hotel-info {
+    flex: 1;
+  }
+  
+  .reservation-hotel-info h3 {
+    margin: 0;
+    font-size: 22px;
+    color: #333;
+  }
+  
+  .reservation-hotel-info p {
+    margin: 5px 0;
+    color: #666;
+  }
+  
+  .reservation-hotel-info ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .reservation-hotel-info li {
+    color: #28a745; /* Zielony kolor */
+    font-weight: bold;
+  }
+
+  .reservation-select {
+    appearance: none; /* Usunięcie domyślnego wyglądu przeglądarki */
+    width: 95%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    outline: none;
+    margin-bottom: 20px;
+  }
+  
+  .reservation-select:focus {
+    border-color: #28a745; /* Zielone obramowanie przy focus */
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+  }
+
+  .hotel-main-image {
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .hotel-main-thumbnail {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .hotel-main-thumbnail:hover {
+    transform: scale(1.05);
+  }
+  
+  .fullscreen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    flex-direction: column;
+  }
+  
+  .gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+  }
+  
+  .gallery-image {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .image-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 300px; /* Maksymalna szerokość */
+    cursor: pointer;
+    overflow: hidden; /* Ukrywa elementy wychodzące poza kontener */
+    border-radius: 10px; /* Dopasowuje zaokrąglenie do zdjęcia */
+  }
+
+  .image-overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7); /* Efekt cienia dla lepszej czytelności */
+    text-align: center;
+    pointer-events: none; /* Tekst nie zakłóca kliknięcia obrazu */
+  }
+  
+
+  
 
 
 
@@ -598,4 +914,10 @@ footer {
     100% {
         transform: rotate(360deg);
     }
+}
+
+@media (max-width: 768px) {
+  .hotel-details-container {
+    flex-direction: column;
+  }
 }

@@ -1,0 +1,189 @@
+main{
+    display: flex;
+    margin: 2vh;
+    margin-inline: 10vw;
+}
+
+.RoomListMain { /* Główny kontener listy z wyszukiwarką pokojów*/
+    height: 61.8vh; 
+    width: 15vw; 
+    padding: 10px;
+    border: 0.35vh solid hsla(0, 0%, 0%, 0.41);
+    border-radius: 5vh; 
+    display: flex;
+    flex-direction: column; /* Układ w kolumnie */
+    align-items: center; /* Wyśrodkowanie elementów w pionie */
+    background-color: hsl(195, 11%, 60%);
+    box-shadow: 2vh 2vh 2vh hsla(0, 0%, 0%, 0.33);
+}
+
+.RoomListMain h2{ /*Tytuł kontenera*/
+    font-size: 3vh;
+    margin: 1vh;
+}
+
+.RoomListMain ul { /*Lista konternra z wyszukiwarką pokojów*/
+    overflow-y: auto; /* Dodanie paska przewijania */
+    scrollbar-color: hsl(195, 11%, 70%) hsl(195, 11%, 85%); /* Kolor paska przewijania */
+    list-style-type: none;
+    padding: 0;
+    margin: 0; /* Dodane, aby usunąć marginesy wewnętrzne w ul */
+}
+
+.RoomListElement{/* Element listy z pokojami*/
+    width: 10vw; ;
+    padding: 0px;
+    margin: 0px;
+    margin-right: 5px;
+    margin-bottom: 1px;
+    border: 0.01vh solid hsla(0, 0%, 0%, 0.41);
+    flex-shrink: 0; /* Nie zmieniaj rozmiaru elementu przy zmianie rozmiaru okna */
+    text-align: center;
+    font-size: 2.2vh;
+    font-weight: bold; /* Pogrubienie */
+    color: inherit; /* Zachowuje kolor tekstu */
+    transition: transform 0.3s ease, color 0.3s ease; /* Animacja odpowiadająca za płnne przejście do nastepne do stanu*/
+}
+
+.RoomListElement:hover{ /* Efekt najechania na element listy z pokojami*/
+    background-color: hsl(195, 11%, 70%);
+    cursor: pointer; /* Zmiana kursora przy najechaniu */
+}
+
+.RoomListSearcher{/* Wyszukiwarka w tablicy z pokojami*/
+    width: 10vw;
+    height: 5vh; /* Określona wysokość w viewport height (5% wysokości ekranu) */
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 10px;
+    background-color: hsl(195, 11%, 85%);
+    border: 1px solid hsla(0, 0%, 0%, 0.41); /*Lekka ramka*/
+    border-radius: 10px; /* Zaokrąglenie krawędzi */
+    flex-shrink: 0; /* Nie zmieniaj rozmiaru elementu przy zmianie rozmiaru okna */
+    text-align: center;
+}
+
+section{ /* Sekcja z informacjami o pokojach*/
+    width: 88%;
+    float: left; /* Wyrównanie do lewej */
+    height: 61.8vh;  
+    padding: 10px;
+    margin-inline: 2vh;;
+    border: 0.35vh solid hsla(0, 0%, 0%, 0.41);
+    border-radius: 5vh; 
+    background-color: hsl(195, 11%, 60%);
+    box-shadow: 2vh 2vh 2vh hsla(0, 0%, 0%, 0.33);
+}
+
+section h2{ /*Tytuł sekcji*/
+    font-size: 5vh;
+    margin: 1vh;
+    text-align: center;
+}
+
+.containerSection { /* Informacje o pokojach (kontener z 2 kolumnami obok siebie*/
+    display: flex;
+    flex-direction: row;
+    height: 85%;
+    justify-content: space-around;
+}
+
+.container1,.container2 { /* Informacje o pokojach - lewa i prawa kolumna*/
+    display: flex;
+    flex-direction: column;
+    margin: 1vh;
+}
+
+.DetailBox{ /* Boxy z informajcami*/
+    border: 0.35vh solid hsla(0, 0%, 0%, 0.41);
+    border-radius: 5vh; 
+    background-color: hsl(195, 11%, 80%);
+    margin: 0.5vh;
+    padding: 0vh;
+    width: 30vw;
+    height: 6vh;
+    display: flex;
+    justify-content: center; /* Centrowanie w poziomie */
+    align-items: center; /* Centrowanie w pionie */
+    font-size: 2vh; /* Dopasowanie wielkości tekstu */
+    text-align: center; /* Wyrównanie tekstu w środku */
+    font-weight: bold;
+
+}
+
+.DetailBox:hover{ /* Efekt najechania na box z info*/
+    background-color: hsl(195, 11%, 90%);
+    cursor: pointer; /* Zmiana kursora przy najechaniu */
+}
+
+.ListMainEM{ /* Kontener z listami wiadomości i wydarzeń*/
+    border: 0.35vh solid hsla(0, 0%, 0%, 0.41);
+    border-radius: 5vh;
+    background-color: hsl(195, 11%, 80%);
+    margin: 0.5vh;
+    padding: 0vh;
+    padding-top: 1vh;
+    width: 30vw;
+    height: 26vh;
+    display: flex;
+    flex-direction: column; /* Układ w kolumnie */
+    align-items: center; /* Wyśrodkowanie elementów w pionie */
+}
+
+.ListMainEM h2{ /*Tytuł kontenera z listami wiadomosci i wydarzen*/
+    font-size: 3.5vh;
+    margin: 0.7vh;;
+}
+
+.ListMainEM ul { /*Lista konternra z wiadomościami i wydarzeniami*/
+    overflow-y: auto; /* Dodanie paska przewijania */
+    scrollbar-color: hsl(195, 11%, 70%) hsl(195, 11%, 85%); /* Kolor paska przewijania */
+    
+    list-style-type: none;
+    padding: 0;
+    margin: 0; /* Dodane, aby usunąć marginesy wewnętrzne w ul */
+}
+
+
+.ListElementEM{ /* Element listy z wiadomościami i wydarzeniami*/
+    width: 25vw;
+    height: 3vh; /* Określona wysokość w viewport height (5% wysokości ekranu) */
+    padding: 0px;
+    margin: 0px;
+    margin-right: 5px;
+    margin-bottom: 1px;
+    border: 0.01vh solid hsla(0, 0%, 0%, 0.41);
+    flex-shrink: 0; /* Nie zmieniaj rozmiaru elementu przy zmianie rozmiaru okna */
+    text-align: center;
+    font-size: 2.2vh;
+    font-weight: bold; /* Pogrubienie */
+    color: inherit; /* Zachowuje kolor tekstu */
+    transition: transform 0.3s ease, color 0.3s ease; /* Animacja */
+}
+
+.ListElementEM:hover{
+    background-color: hsl(195, 11%, 90%);
+    cursor: pointer; /* Zmiana kursora przy najechaniu */
+}
+
+
+.ListSearcherEM{ /* Wyszukiwarka w tablicy z wiadomościami i wydarzeniami*/
+    width: 10vw;
+    height: 5vh; /* Określona wysokość w viewport height (5% wysokości ekranu) */
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 10px;
+    background-color: hsl(195, 11%, 85%);
+    border: 1px solid hsla(0, 0%, 0%, 0.41); /* Opcjonalnie: dodaj ramkę dla rozróżnienia elementów */
+    border-radius: 10px; /* Zaokrąglenie krawędzi */
+    flex-shrink: 0; /* Nie zmieniaj rozmiaru elementu przy zmianie rozmiaru okna */
+    text-align: center; /* Wyśrodkowanie tekstu */
+} 
+
+.SearcherPositionEM{ /* Pozycja wyszukiwarki w kontenerze z listami wiadomości i wydarzeń*/
+    display: flex;
+    flex-direction: row;    /* Układ w poziomie (okob tytułu)*/
+    justify-content: space-between;
+    margin: 1vh;
+}
+

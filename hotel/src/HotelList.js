@@ -1,7 +1,9 @@
-import React, { useState } from "react";
-
+import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import hotel1 from "./hotel1.png";
 import hotel2 from "./hotel2.jpg";
+import { AuthContext } from "./AuthContext";
+
 
 const hotelsData = [
   {
@@ -31,6 +33,7 @@ function HotelList() {
   const [search, setSearch] = useState("");
   const [locationFilter, setLocationFilter] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("");
+  const { setIsLoggedIn, checkLoginStatus, isLoggedIn } = useContext(AuthContext);
 
   // Filtrowanie hoteli na podstawie stanu
   const filteredHotels = hotelsData.filter((hotel) => {
@@ -94,7 +97,12 @@ function HotelList() {
             </div>
             <div className="hotel-price">
               <p>{hotel.price} zł / noc</p>
-              <button className="manage-button">Zobacz ofertę</button>
+              {isLoggedIn ?(
+                <button className="manage-button">Zarezerwuj</button>
+              ) : (
+                <Link to="/login" className="manage-button" >Zaloguj się aby zarezerwować</Link>
+              )}
+              
             </div>
           </div>
         ))}

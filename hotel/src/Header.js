@@ -9,6 +9,25 @@ var userStatus = 'user';   // admin, staff, guest - do testów, potem ma być mo
 
 function Header() {
   const { isLoggedIn, setIsLoggedIn, checkLoginStatus, handleLogout } = useContext(AuthContext); // Pobranie funkcji z kontekstu
+  const [apiData, setApiData] = useState(null);
+
+  useEffect(() => {
+    fetch('/api/data')
+        .then(response => {
+            console.log('API response:', response);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('API data:', data);
+            setApiData(data);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+}, []);
 
   useEffect(() => {
     checkLoginStatus();
@@ -20,6 +39,13 @@ function Header() {
       <Link to="/">
         <img src={logo} alt="Platforma Hotelowa Logo" className="logo" />
       </Link>
+      {apiData ? (
+                <div className="api-data">
+                    <p>API Response: {apiData.message}</p>
+                </div>
+            ) : (
+                <p>Loading data from API...</p>
+            )}
       <nav className="main-menu">
         <Link to="/hotel-list">Oferta hoteli</Link>
         <Link to="/collaboration">Współpraca</Link>

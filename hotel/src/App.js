@@ -7,7 +7,7 @@ import Dashboard from "./Dashboard";
 import Collaboration from "./Collaboration";
 import Header from "./Header";
 import Footer from "./Footer";
-import StaffDashboard from "./staff/Staff-dashboard";
+
 
 
 function App() {
@@ -22,7 +22,6 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/collaboration" element={<Collaboration />} />
           <Route path="/admin-dashboard" element={<Dashboard />} />
-          <Route path="/staff/Staff-dashboard" element={<StaffDashboard />} />
         </Routes>
       </div>
       <Footer />

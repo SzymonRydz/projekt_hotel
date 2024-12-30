@@ -267,6 +267,11 @@ p {
 .login-container button:hover {
     background-color: #45a049; /* Ciemniejszy szaro-niebieski przy hover */
 }
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}
 .logo {
     height: 50px; /* Dopasuj wysokość obrazka w pikselach */
     width: auto;

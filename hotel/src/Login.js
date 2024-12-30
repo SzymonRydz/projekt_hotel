@@ -4,7 +4,10 @@ import { AuthContext } from "./AuthContext"; // Import kontekstu
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState(""); // Dodano pole "Powtórz hasło"
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState(""); // Dodano telefon
+  const [city, setCity] = useState(""); // Dodano miasto
   const [isRegistering, setIsRegistering] = useState(false);
   const [error, setError] = useState("");
 
@@ -15,18 +18,32 @@ function Login() {
 
     // Walidacja danych wejściowych
     if (!username || username.trim().length === 0) {
-      setError("Nazwa użytkownika jest wymagana.");
+      setError("Nazwa użytkownika jest wymagana!");
       return;
     }
 
     if (!password || password.trim().length === 0) {
-      setError("Hasło jest wymagane.");
+      setError("Hasło jest wymagane!");
       return;
     }
 
-    if (isRegistering && (!email || email.trim().length === 0)) {
-      setError("Email jest wymagany do rejestracji.");
-      return;
+    if (isRegistering) {
+      if (!email || email.trim().length === 0) {
+        setError("Email jest wymagany do rejestracji!");
+        return;
+      }
+      if (!phone || phone.trim().length === 0) {
+        setError("Numer telefonu jest wymagany do rejestracji!");
+        return;
+      }
+      if (!city || city.trim().length === 0) {
+        setError("Miasto jest wymagane do rejestracji!");
+        return;
+      }
+      if (password !== confirmPassword) {
+        setError("Hasła nie są takie same!");
+        return;
+      }
     }
 
     try {
@@ -42,7 +59,7 @@ function Login() {
         },
         body: JSON.stringify(
           isRegistering
-            ? { username, password, email }
+            ? { username, password, email, phone, city }
             : { username, password }
         ),
         credentials: "include",
@@ -53,7 +70,10 @@ function Login() {
         // Reset pól formularza
         setUsername("");
         setPassword("");
+        setConfirmPassword("");
         setEmail("");
+        setPhone("");
+        setCity("");
         setError("");
 
         if (isRegistering) {
@@ -64,11 +84,11 @@ function Login() {
         }
       } else {
         const errorData = await response.json();
-        setError(errorData.message || "Wystąpił problem podczas przetwarzania żądania.");
+        setError(errorData.message || "Wystąpił problem podczas przetwarzania żądania!");
       }
     } catch (err) {
       console.error("Błąd połączenia z serwerem:", err);
-      setError("Wystąpił błąd podczas łączenia z serwerem.");
+      setError("Wystąpił błąd podczas łączenia z serwerem!");
     }
   };
 
@@ -94,16 +114,41 @@ function Login() {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
+            <label htmlFor="phone">Telefon:</label>
+            <input
+              type="text"
+              id="phone"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              required
+            />
+            <label htmlFor="city">Miasto:</label>
+            <input
+              type="text"
+              id="city"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              required
+            />
+            <label htmlFor="password">Hasło:</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <label htmlFor="confirmPassword">Powtórz hasło:</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
           </>
         )}
-        <label htmlFor="password">Hasło:</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        
         {error && <p className="error-message">{error}</p>}
         <button type="submit">{isRegistering ? "Zarejestruj się" : "Zaloguj się"}</button>
       </form>
